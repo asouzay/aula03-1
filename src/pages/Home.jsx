@@ -17,10 +17,15 @@ useEffect(() => {
     receberListaProdutos();
 },[]);
 
+const ordenarAz = () =>{
+    const listaAux = {...lista}.sort((a,b) => a.title.localleCompare(b.title));
+    setLista(listaAux);
+}
+
  return(
     <>
     <h1>Loja GuStore</h1>
-   <ListaProdutos  produtos={lista}/>
+   <ListaProdutos produtos={lista} ordenarAz={ordenarAz}/>
     </>
  );
 }
